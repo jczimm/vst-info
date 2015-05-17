@@ -1,0 +1,25 @@
+{
+  "name": "vst-info",
+  "version": "1.0.0",
+  "description": "Command-line info utility for the VST file format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jczimm/vst-info.git"
+  },
+  "keywords": [
+    "vst"
+  ],
+  "author": "jczimm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jczimm/vst-info/issues"
+  },
+  "homepage": "https://github.com/jczimm/vst-info",
+  "dependencies": {
+    "tinycolor": "0.0.1"
+  }
+}
