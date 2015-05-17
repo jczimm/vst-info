@@ -2,7 +2,6 @@
   "name": "vst-info",
   "version": "1.0.0",
   "description": "Command-line info utility for the VST file format",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,10 +10,14 @@
     "url": "https://github.com/jczimm/vst-info.git"
   },
   "keywords": [
-    "vst"
+    "vst", "dll"
   ],
   "author": "jczimm",
   "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "vst-info": "index.js"
+  },
   "bugs": {
     "url": "https://github.com/jczimm/vst-info/issues"
   },
