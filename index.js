@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 Buffer.prototype.indexOf = function(str) { 
   if (typeof str !== 'string' || str.length === 0 || str.length > this.length) return -1; 
   var search = str.split("").map(function(el) { return el.charCodeAt(0); }), 
@@ -36,10 +38,31 @@ var info = {
 
 //
 
-var filename = process.argv[2]; // replace with process.argv[1] when executed as a global module
+var input = process.argv[2];
+
+if (typeof input !== "string" || input.toLowerCase() === "--help" || input.toLowerCase() === "-h") {
+  console.log("Usage: vst-info [options] [path to .dll file]\n");
+  console.log("Options:");
+  console.log("\t--help (-h)\tShows this help message.");
+  process.exit(1);
+}
+
+var filename = input;
+
+if (filename.split(".").pop() !== "dll") {
+  console.log("Error: " + filename + " is not a valid .dll file.");
+  process.exit(1);
+}
+
 fs.readFile(filename, function(err, result) {
+
+  if (result === undefined || result.constructor !== Buffer) {
+    console.log("Error reading .dll file " + filename);
+    process.exit(1);
+  }
+
 	var index = result.indexOf("PE"),
-		archIdentifier = result[index + 4].toString(16).toLowerCase();
+		  archIdentifier = result[index + 4].toString(16).toLowerCase();
 	
 	switch (archIdentifier) {
 		case "4c":
