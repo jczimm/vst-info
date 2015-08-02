@@ -2,9 +2,7 @@
 
 Simple command-line VST info utility.  (only works with Windows .dll files for now)
 
-```
-npm install -g vst-info
-```
+[![NPM](https://nodei.co/npm/vst-info.png?compact=true)](https://nodei.co/npm/vst-info/)
 
 ## Usage
 
